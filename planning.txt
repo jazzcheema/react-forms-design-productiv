@@ -1,0 +1,12 @@
+What to do:
+
+TodoApp
+
+Finished:
+EditableTodoList
+App
+TodoForm
+EditableTodo
+Footer
+TopTodo
+Todo
