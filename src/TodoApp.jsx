@@ -17,16 +17,27 @@ import EditableTodoList from "./EditableTodoList";
 
 function TodoApp() {
 
+  const [todos, setTodos] = useState([])
+
   /** add a new todo to list */
   function create(newTodo) {
+    setTodos(todos => [...todos, newTodo])
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
+   const updatedTodoIndex = todos.findIndex(t => t.id === updatedTodo.id)
+   setTodos(todos => {
+    const todoClone = [...todos];
+    todoClone[updatedTodoIndex] = updatedTodo;
+
+    return todoClone;
+   })
   }
 
   /** delete a todo by id */
   function remove(id) {
+    setTodos(todos => todos.filter(t => t.id !== id));
   }
 
   return (
