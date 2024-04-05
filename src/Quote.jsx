@@ -1,6 +1,6 @@
 import getQuote from "./getQuote";
 import { useState } from "react";
-import './Quote.css'
+import "./Quote.css";
 
 /** Displays quote and "get new quote" button
  *
@@ -14,6 +14,7 @@ function Quote() {
   const [firstTime, setFirstTime] = useState(true);
 
   async function getNewQuote() {
+    setQuote("");
     setQuote(await getQuote());
   }
 
@@ -31,7 +32,9 @@ function Quote() {
         </div>
       )}
       {quote ? (
-        <button className="Quote-QuoteBtn" onClick={getNewQuote}>Nü quøte</button>
+        <button className="Quote-QuoteBtn" onClick={getNewQuote}>
+          Nü quøte
+        </button>
       ) : (
         <div className="Quote-loading"></div>
       )}
