@@ -51,19 +51,55 @@ describe("TodoApp component ", function () {
     expect(deleteBtnsAfterDelete.length).toEqual(2);
   });
 
-  
+
   it("Should update a todo", function () {
     const { container } = render(<TodoApp initialTodos={testTodos} />);
 
     const editBtn = container.querySelector(".EditableTodo-toggle");
 
     fireEvent.click(editBtn);
-    const descriptionArea = container.querySelector("#newTodo-description")
+    const descriptionArea = container.querySelector("#newTodo-description");
 
-    fireEvent.change(descriptionArea, {target: {value: "Test Change Description"}});
-    const submitUpdateBtn = container.querySelector(".NewTodoForm-addBtn")
+    fireEvent.change(descriptionArea, { target: { value: "Test Change Description" } });
+    const submitUpdateBtn = container.querySelector(".NewTodoForm-addBtn");
 
-    fireEvent.click(submitUpdateBtn)
-    expect(container).toContainHTML("Test Change Description")
+    fireEvent.click(submitUpdateBtn);
+    expect(container).toContainHTML("Test Change Description");
   });
+
+  it("Correctly updates top todo on addition of new todos", function () {
+    const { container, queryByText, debug } = render(<TodoApp initialTodos={[]} />);
+
+    expect(container).not.toContainHTML("Top Todo");
+    expect(container).toContainHTML("You have no todos.");
+
+    const titleInput = container.querySelector("#newTodo-title");
+    const descriptionInput = container.querySelector("#newTodo-description");
+    const priorityInput = container.querySelector("#newTodo-priority");
+    const submitBtn = container.querySelector(".NewTodoForm-addBtn");
+
+    fireEvent.change(titleInput, { target: { value: "test title" } });
+    fireEvent.change(descriptionInput, { target: { value: "test description" } });
+    fireEvent.change(priorityInput, { target: { value: "2" } });
+    fireEvent.click(submitBtn);
+
+    expect(titleInput.textContent).toEqual("");
+    expect(descriptionInput.textContent).toEqual("");
+    expect(priorityInput.value).toEqual("3");
+
+    expect(container).toContainHTML("Top Todo");
+    expect(container).not.toContainHTML("You have no todos.");
+
+    let topTodo = queryByText("Top Todo").nextSibling;
+    expect(topTodo).toContainHTML("test description")
+
+    fireEvent.change(titleInput, { target: { value: "test title2" } });
+    fireEvent.change(descriptionInput, { target: { value: "test description2" } });
+    fireEvent.change(priorityInput, { target: { value: "1" } });
+    fireEvent.click(submitBtn);
+
+    topTodo = queryByText("Top Todo").nextSibling;
+    expect(topTodo).toContainHTML("test description2")
+    });
+
 });

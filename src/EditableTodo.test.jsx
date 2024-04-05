@@ -46,12 +46,7 @@ describe("EditableTodo component", function () {
     //     fireEvent.click(submitBtn);
 
     //     expect(titleInput.textContent).toEqual("");
-    //     expect(descriptionInput.textContent).toEqual("");
-    //     expect(priorityInput.value).toEqual("3");
-
-    //     expect(formData).toEqual({
-    //         title: "test title",
-    //         description: "test description",
+    //     expect(descripti        console.dir(mockRemoveMe): "test description",
     //         priority: "1"
     //     })
     // });
