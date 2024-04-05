@@ -19,6 +19,14 @@
   /* margin-top: -50px; */
 }
 
+.Quote-text {
+  font-weight: 200;
+}
+
+.Quote-author {
+  font-style: italic;
+}
+
 .Quote-QuoteBtn:hover {
   animation: flash 1s infinite;
 }

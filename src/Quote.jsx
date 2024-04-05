@@ -27,8 +27,8 @@ function Quote() {
     <div>
       {quote && (
         <div>
-          <p>{quote.text}</p>
-          <p>{quote.author}</p>
+          <p className="Quote-text">{quote.text}</p>
+          <p className="Quote-author">{quote.author}</p>
         </div>
       )}
       {quote ? (
