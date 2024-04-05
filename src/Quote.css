@@ -1,0 +1,30 @@
+.Quote-loading {
+  height: 1000px;
+  width: 4000px;
+  background-image: url("./loading-quote.gif");
+  background-repeat: no-repeat;
+  mix-blend-mode: lighten;
+  position: absolute;
+  z-index: 5;
+  top: -490px;
+  left: 100px;
+  /* background-position: top; */
+}
+
+.Quote-QuoteBtn {
+  border-radius: 10px;
+  background-color: rgb(119, 109, 109);
+  color: white;
+  box-shadow: 2px 2px 2px 2px black;
+  /* margin-top: -50px; */
+}
+
+.Quote-QuoteBtn:hover {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  50% {
+    opacity: 0;
+  }
+}

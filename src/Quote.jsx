@@ -1,5 +1,6 @@
 import getQuote from "./getQuote";
 import { useState } from "react";
+import './Quote.css'
 
 /** Displays quote and "get new quote" button
  *
@@ -9,30 +10,33 @@ import { useState } from "react";
  * TodoApp -> Quote
  */
 function Quote() {
-    const [ quote, setQuote ] = useState("");
-    const [ firstTime, setFirstTime ] = useState(true);
+  const [quote, setQuote] = useState("");
+  const [firstTime, setFirstTime] = useState(true);
 
-    async function getNewQuote() {
-        setQuote(await getQuote())
-    }
+  async function getNewQuote() {
+    setQuote(await getQuote());
+  }
 
-    if (firstTime) {
-        getNewQuote();
-        setFirstTime(false);
-    }
+  if (firstTime) {
+    getNewQuote();
+    setFirstTime(false);
+  }
 
-    return (<div>
-        {quote && (
-            <div>
-                <p>{quote.text}</p>
-                <p>{quote.author}</p>
-            </div>
-        )}
-        {quote
-        ? <button onClick={getNewQuote}>Nü quøte</button>
-        : <button onClick={getNewQuote}>Click here for inspirational quøte</button>
-        }
-    </div>);
+  return (
+    <div>
+      {quote && (
+        <div>
+          <p>{quote.text}</p>
+          <p>{quote.author}</p>
+        </div>
+      )}
+      {quote ? (
+        <button className="Quote-QuoteBtn" onClick={getNewQuote}>Nü quøte</button>
+      ) : (
+        <div className="Quote-loading"></div>
+      )}
+    </div>
+  );
 }
 
 export default Quote;
