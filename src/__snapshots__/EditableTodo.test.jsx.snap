@@ -1,0 +1,121 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EditableTodo component > Matches snapshot 1`] = `
+<div>
+  <div
+    class="EditableTodo"
+  >
+    <div
+      class="mb-3"
+    >
+      <div
+        class="float-end text-sm-end"
+      >
+        <button
+          class="EditableTodo-toggle btn-link btn btn-sm"
+        >
+          Edit
+        </button>
+        <button
+          class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+        >
+          Del
+        </button>
+      </div>
+      <div
+        class="Todo"
+      >
+        <div>
+          <b>
+            Test Title1
+          </b>
+           
+          <small>
+            (priority: 
+            3
+            )
+          </small>
+        </div>
+        <div>
+          <small>
+            Test Description1
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TodoForm component > Matches snapshot 1`] = `
+<div>
+  <form
+    class="NewTodoForm"
+  >
+    <div
+      class="mb-3"
+    >
+      <input
+        aria-label="Title"
+        class="form-control"
+        id="newTodo-title"
+        name="title"
+        placeholder="Title"
+        required=""
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <textarea
+        aria-label="Description"
+        class="form-control"
+        id="newTodo-description"
+        name="description"
+        placeholder="Description"
+      />
+    </div>
+    <div
+      class="mb-3 d-flex justify-content-between"
+    >
+      <div
+        class="w-75 d-flex justify-content-between"
+      >
+        <label
+          class="d-inline-flex"
+          for="newTodo-priority"
+        >
+          Priority:; 
+        </label>
+        <select
+          class="form-control form-control-sm d-inline-flex"
+          id="newTodo-priority"
+          name="priority"
+        >
+          <option
+            value="1"
+          >
+            Ultra-Über
+          </option>
+          <option
+            value="2"
+          >
+            Über
+          </option>
+          <option
+            value="3"
+          >
+            Meh
+          </option>
+        </select>
+      </div>
+      <button
+        class="btn-primary rig btn btn-sm NewTodoForm-addBtn"
+      >
+        Gø!
+      </button>
+    </div>
+  </form>
+</div>
+`;
