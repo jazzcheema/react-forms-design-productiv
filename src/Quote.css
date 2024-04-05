@@ -15,7 +15,8 @@
   border-radius: 10px;
   background-color: rgb(119, 109, 109);
   color: white;
-  box-shadow: 2px 2px 2px 2px black;
+  box-shadow: 1px 1px 1px 1px black;
+  border: none;
   /* margin-top: -50px; */
 }
 
