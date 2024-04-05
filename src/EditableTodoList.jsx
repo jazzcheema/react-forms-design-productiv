@@ -18,7 +18,7 @@ function EditableTodoList({ todos, update, remove }) {
         <EditableTodo
           key={todo.id}
           update={update}
-          removeMe={() => remove(todo.id)}
+          removeMe={remove}
           todo={todo}
         />)
       }

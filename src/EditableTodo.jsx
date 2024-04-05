@@ -23,7 +23,7 @@ function EditableTodo({ update, removeMe, todo }) {
 
   /** Call removeMe fn passed to this. */
   function handleDelete() {
-    removeMe();
+    removeMe(todo.id);
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */

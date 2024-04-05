@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const DEFAULT_INITAL_FORM_DATA = {
+const DEFAULT_INITIAL_FORM_DATA = {
   title: "",
   description: "",
-  priority: "3"
+  priority: "3",
 };
 
 /** Form for adding.
@@ -15,15 +15,14 @@ const DEFAULT_INITAL_FORM_DATA = {
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({ initialFormData = DEFAULT_INITAL_FORM_DATA, handleSave }) {
-
+function TodoForm({ initialFormData = DEFAULT_INITIAL_FORM_DATA, handleSave }) {
   const [formData, setFormData] = useState(initialFormData);
   /** Update form input. */
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData(fData => ({
+    setFormData((fData) => ({
       ...fData,
-      [name]: value
+      [name]: value,
     }));
   }
 
@@ -36,7 +35,6 @@ function TodoForm({ initialFormData = DEFAULT_INITAL_FORM_DATA, handleSave }) {
 
   return (
     <form className="NewTodoForm" onSubmit={handleSubmit}>
-
       <div className="mb-3">
         <input
           id="newTodo-title"
@@ -64,10 +62,11 @@ function TodoForm({ initialFormData = DEFAULT_INITAL_FORM_DATA, handleSave }) {
 
       <div className="mb-3 d-flex justify-content-between">
         <div className="w-75 d-flex justify-content-between">
-          <label htmlFor="newTodo-priority"
-            className="d-inline-flex">Priority:;&nbsp;
+          <label htmlFor="newTodo-priority" className="d-inline-flex">
+            Priority:;&nbsp;
           </label>
-          <select id="newTodo-priority"
+          <select
+            id="newTodo-priority"
             name="priority"
             value={formData.priority}
             onChange={handleChange}
@@ -82,7 +81,6 @@ function TodoForm({ initialFormData = DEFAULT_INITAL_FORM_DATA, handleSave }) {
           Gø!
         </button>
       </div>
-
     </form>
   );
 }
